@@ -127,7 +127,7 @@ LRESULT CALLBACK mouse_hook_proc(int n_code, WPARAM w_param, LPARAM l_param) {
 				}
 
 				// NOTE: we dont redraw the window until resizing finishes, as setwindowpos is ridiculously expensive (but how does dwm do this smoothly???)
-				SetWindowPos(relative_size_hwnd, nullptr, current_rect.left, current_rect.top, WIDTH(current_rect), HEIGHT(current_rect), SWP_NOREDRAW | SWP_ASYNCWINDOWPOS);
+				MoveWindow(relative_size_hwnd, current_rect.left, current_rect.top, WIDTH(current_rect), HEIGHT(current_rect), true);
 			}
 		}
 	}
